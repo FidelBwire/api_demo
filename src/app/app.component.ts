@@ -10,6 +10,8 @@ import { Si } from './models/si';
 export class AppComponent {
   title = 'APIDEMO';
 
+  siResponse: Si[] = [];
+
   constructor(private siService: SiService) { }
 
   ngOnInit() {
@@ -22,9 +24,11 @@ export class AppComponent {
         let responseItems: Si[] | null = response.body;
 
         if (responseItems != null) {
-          responseItems.forEach((item) => {
-            console.log(item.code)
-          })
+          // responseItems.forEach((item) => {
+          //   console.log(item.code + " => " + item.description)
+          // });
+
+          this.siResponse = responseItems;
         }
       }
     })
