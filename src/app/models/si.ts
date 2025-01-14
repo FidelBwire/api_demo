@@ -1,8 +1,8 @@
 export interface SiSearchParameters {
   PageNumber: number;
   PageSize: number;
-  Code: string;
-  Description: string;
+  Code?: string;
+  Description?: string;
 }
 
 export interface Si {

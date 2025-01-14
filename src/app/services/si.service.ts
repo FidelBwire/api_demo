@@ -11,9 +11,15 @@ export class SiService {
 
   constructor(private http: HttpClient) {}
 
-  fetchSi(): Observable<HttpResponse<Si[]>> {
-    let url: string = `${this.baseUrl}/si`;
+  fetchSi(params: SiSearchParameters): Observable<HttpResponse<Si[]>> {
+    let url: string = `${this.baseUrl}/si?PageNumber=${params.PageNumber}&PageSize=${params.PageSize}`;
 
-    return this.http.get<Si[]>(url, {observe: "response"});
+    if (params.Code)
+      url = `${url}&Code=${params.Code}`;
+
+    if (params.Description)
+      url = `${url}&Description=${params.Description}`
+
+    return this.http.get<Si[]>(url, { observe: 'response' });
   }
 }

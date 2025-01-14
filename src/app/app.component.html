@@ -1,5 +1,11 @@
 <router-outlet />
 
+<p>CurrentPage: {{pagination.CurrentPage}}</p>
+<p>TotalPages: {{pagination.TotalPages}}</p>
+<p>PageSize: {{pagination.PageSize}}</p>
+<p>TotalCount: {{pagination.TotalCount}}</p>
+<p>HasPrevious: {{pagination.HasPrevious}}</p>
+<p>HasNext: {{pagination.HasNext}}</p>
 <div class="" *ngFor="let si of siResponse; index as i">
   <p>{{i + 1}}). {{si.code}} => {{si.description}} => {{si.itemGrouping}}</p>
 </div>
