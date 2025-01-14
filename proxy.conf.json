@@ -1,6 +1,6 @@
 {
   "/server" : {
-    "target": "http://localhost:5188/api",
+    "target": "https://trc9zhlb-5188.uks1.devtunnels.ms/api",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug",

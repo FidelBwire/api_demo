@@ -22,4 +22,11 @@ export class SiService {
 
     return this.http.get<Si[]>(url, { observe: 'response' });
   }
+
+  // GET => Fetch data from the server
+  // POST => Send data to the server
+  // PUT => Update data on the server
+  // DELETE => Delete data from the server
+  // OPTIONS => Used by client server to confirm supported HTTP methods
+  
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { SiService } from './services/si.service';
 import { Si, SiSearchParameters } from './models/si';
 import { Pagination } from './models/pagination';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -14,12 +15,16 @@ export class AppComponent {
   siResponse: Si[] = [];
   pagination!: Pagination;
 
-  
+  siFetchSubscription!: Subscription;
 
   constructor(private siService: SiService) { }
 
   ngOnInit() {
     this.getSis();
+  }
+
+  ngOnDestroy(): void {
+    this.siFetchSubscription?.unsubscribe(); // Conditional call to unsubscribe => unsubscribe will only be called if siFetchSubscription is not null
   }
 
   private getSis(): void {
@@ -30,7 +35,7 @@ export class AppComponent {
       Description: 'P'
     }
 
-    this.siService.fetchSi(param).subscribe({
+    this.siFetchSubscription = this.siService.fetchSi(param).subscribe({
       next: (response) => {
         let responseItems: Si[] | null = response.body; // Get the response body
 
