@@ -3,6 +3,7 @@ import { SiService } from './services/si.service';
 import { Si, SiSearchParameters } from './models/si';
 import { Pagination } from './models/pagination';
 import { Subscription } from 'rxjs';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -15,12 +16,26 @@ export class AppComponent {
   siResponse: Si[] = [];
   pagination!: Pagination;
 
+  protected demoForm!: FormGroup;
+
+  protected pageSize = new FormControl();
+  protected pageNumber = new FormControl();
+  protected code = new FormControl();
+  protected description = new FormControl();
+
   siFetchSubscription!: Subscription;
 
-  constructor(private siService: SiService) { }
+  constructor(private siService: SiService) {}
 
   ngOnInit() {
     this.getSis();
+
+    this.demoForm = new FormGroup({
+      pageSize: this.pageSize,
+      pageNumber: this.pageNumber,
+      code: this.code,
+      description: this.description,
+    });
   }
 
   ngOnDestroy(): void {
@@ -32,11 +47,12 @@ export class AppComponent {
       PageNumber: 1,
       PageSize: 2,
       Code: '120',
-      Description: 'P'
-    }
+      Description: 'P',
+    };
 
     this.siFetchSubscription = this.siService.fetchSi(param).subscribe({
       next: (response) => {
+        // Executed upon successfull API request
         let responseItems: Si[] | null = response.body; // Get the response body
 
         const paginationHeader = response.headers.get('x-pagination'); // Get the response header
@@ -45,7 +61,7 @@ export class AppComponent {
           // To confirm that pagination is not null
           console.log('Header: ' + paginationHeader);
 
-          let paginationData = JSON.parse(paginationHeader);
+          let paginationData = JSON.parse(paginationHeader); // To convert JSON string to an object
 
           this.pagination = {
             CurrentPage: paginationData.CurrentPage,
@@ -64,6 +80,14 @@ export class AppComponent {
 
           this.siResponse = responseItems;
         }
+      },
+      error: (error) => {
+        // Executed in case of an error
+        console.log('Error');
+      },
+      complete() {
+        // Will always be executed whether API call is successful or not
+        console.log('Complete');
       },
     });
   }

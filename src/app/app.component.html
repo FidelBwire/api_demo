@@ -1,11 +1,42 @@
 <router-outlet />
 
-<p>CurrentPage: {{pagination.CurrentPage}}</p>
-<p>TotalPages: {{pagination.TotalPages}}</p>
-<p>PageSize: {{pagination.PageSize}}</p>
-<p>TotalCount: {{pagination.TotalCount}}</p>
-<p>HasPrevious: {{pagination.HasPrevious}}</p>
-<p>HasNext: {{pagination.HasNext}}</p>
-<div class="" *ngFor="let si of siResponse; index as i">
-  <p class="text-red-500">{{i + 1}}). {{si.code}} => {{si.description}} => {{si.itemGrouping}}</p>
+<div class="p-8">
+  <div class="pb-10">
+    <form [formGroup]="demoForm" class="flex flex-row gap-4">
+
+      <div class="flex flex-col gap-1">
+        <div class="capitalize">Page Size</div>
+        <input class="border border-black py-1 px-2 rounded-md" [formControl]="pageSize" />
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <div class="capitalize">Page Number</div>
+        <input class="border border-black py-1 px-2 rounded-md" [formControl]="pageNumber" />
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <div class="capitalize">Code</div>
+        <input class="border border-black py-1 px-2 rounded-md" [formControl]="code" />
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <div class="capitalize">Description</div>
+        <input class="border border-black py-1 px-2 rounded-md" [formControl]="description" />
+      </div>
+
+    </form>
+  </div>
+
+  <div class="" *ngIf="pagination != null">
+    <p>CurrentPage: {{pagination.CurrentPage}}</p>
+    <p>TotalPages: {{pagination.TotalPages}}</p>
+    <p>PageSize: {{pagination.PageSize}}</p>
+    <p>TotalCount: {{pagination.TotalCount}}</p>
+    <p>HasPrevious: {{pagination.HasPrevious}}</p>
+    <p>HasNext: {{pagination.HasNext}}</p>
+  </div>
+
+  <div class="" *ngFor="let si of siResponse; index as i">
+    <p class="">{{i + 1}}). {{si.code}} => {{si.description}} => {{si.itemGrouping}}</p>
+  </div>
 </div>
