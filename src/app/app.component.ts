@@ -35,7 +35,7 @@ export class AppComponent {
   protected email = new FormControl<string>('', [
     Validators.required,
     Validators.email,
-    Validators.maxLength(3),
+    Validators.maxLength(150),
   ]);
   protected password = new FormControl<string>('', [
     Validators.required,
@@ -117,5 +117,23 @@ export class AppComponent {
         console.log('Complete');
       },
     });
+  }
+
+  protected fetchData(): void {
+    if (this.demoForm.invalid) {
+      Object.keys(this.demoForm.controls).forEach((key) => {
+        const controlErrors = this.demoForm.get(key)?.errors;
+
+        if (controlErrors != null) {
+          Object.keys(controlErrors).forEach((keyError) => {
+            console.log(`${key}: Validation='${keyError}': is valid: ${!controlErrors[keyError]}`);
+          })
+        }
+      })
+    } else {
+      var formData = this.demoForm.value;
+
+      formData.code;
+    }
   }
 }

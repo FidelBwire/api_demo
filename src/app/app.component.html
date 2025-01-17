@@ -2,7 +2,7 @@
 
 <div class="p-8">
   <div class="pb-10">
-    <form [formGroup]="demoForm" class="flex flex-row gap-4">
+    <form [formGroup]="demoForm" class="flex flex-col gap-4">
 
       <div class="flex flex-col gap-1">
         <div class="capitalize">Page Size</div>
@@ -44,8 +44,11 @@
         <input type="email" class="border border-black py-1 px-2 rounded-md" [formControl]="email" />
         <div class="" *ngIf="email.invalid && (email.dirty || email.touched)">
           <div class="" *ngIf="email.errors?.['email']">Invalid email address</div>
+          <div class="" *ngIf="email.errors?.['maxlength']">Email cannot be more than 150</div>
         </div>
       </div>
+
+      <button class="w-fit bg-blue-600 px-4 py-1.5 rounded-md text-white" (click)="fetchData()">Fetch Data</button>
 
     </form>
   </div>
