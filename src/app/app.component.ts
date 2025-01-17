@@ -3,7 +3,7 @@ import { SiService } from './services/si.service';
 import { Si, SiSearchParameters } from './models/si';
 import { Pagination } from './models/pagination';
 import { Subscription } from 'rxjs';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -16,12 +16,46 @@ export class AppComponent {
   siResponse: Si[] = [];
   pagination!: Pagination;
 
-  protected demoForm!: FormGroup;
+  protected pageSize = new FormControl<number | null>(null, [
+    Validators.required,
+    Validators.max(50),
+    Validators.min(10),
+  ]);
+  protected pageNumber = new FormControl<number | null>(null, [
+    Validators.required,
+    Validators.min(1),
+  ]);
+  protected code = new FormControl<string>('', [
+    Validators.maxLength(30),
+  ]);
+  protected description = new FormControl<string>('', [
+    Validators.maxLength(30),
+  ]);
 
-  protected pageSize = new FormControl();
-  protected pageNumber = new FormControl();
-  protected code = new FormControl();
-  protected description = new FormControl();
+  protected email = new FormControl<string>('', [
+    Validators.required,
+    Validators.email,
+    Validators.maxLength(3),
+  ]);
+  protected password = new FormControl<string>('', [
+    Validators.required,
+    Validators.maxLength(30),
+    Validators.maxLength(10),
+    Validators.minLength(6),
+  ]);
+
+  protected demoForm: FormGroup = new FormGroup({
+    pageSize: this.pageSize,
+    pageNumber: this.pageNumber,
+    code: this.code,
+    description: this.description,
+    email: this.email,
+  });
+
+  protected signInForm = new FormGroup({
+    email: this.email,
+    password: this.password,
+  });
 
   siFetchSubscription!: Subscription;
 
@@ -29,13 +63,6 @@ export class AppComponent {
 
   ngOnInit() {
     this.getSis();
-
-    this.demoForm = new FormGroup({
-      pageSize: this.pageSize,
-      pageNumber: this.pageNumber,
-      code: this.code,
-      description: this.description,
-    });
   }
 
   ngOnDestroy(): void {
