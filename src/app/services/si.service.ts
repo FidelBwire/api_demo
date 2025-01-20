@@ -12,7 +12,7 @@ export class SiService {
   constructor(private http: HttpClient) {}
 
   fetchSi(params: SiSearchParameters): Observable<HttpResponse<Si[]>> {
-    let url: string = `${this.baseUrl}/si?PageNumber=${params.PageNumber}&PageSize=${params.PageSize}`;  // Passing parameters]
+    let url: string = `${this.baseUrl}/si1?PageNumber=${params.PageNumber}&PageSize=${params.PageSize}`;  // Passing parameters]
 
     if (params.Code)
       url = `${url}&Code=${params.Code}`;

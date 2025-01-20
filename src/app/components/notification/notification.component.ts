@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class NotificationComponent {
 
-  notification!: string;
+  notification!: string | null;
 
   constructor(private notificationService: NotificationService) { }
 
@@ -16,6 +16,7 @@ export class NotificationComponent {
     this.notificationService.getNotification().subscribe({
       next: (message) => {
         this.notification = message;
+        setTimeout(() => this.notification = null, 3000)
       },
     });
   }
