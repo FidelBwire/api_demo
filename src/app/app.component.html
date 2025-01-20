@@ -1,6 +1,16 @@
 <router-outlet />
 <app-notification></app-notification>
 
+<<<<<<< HEAD
+<p>CurrentPage: {{pagination.CurrentPage}}</p>
+<p>TotalPages: {{pagination.TotalPages}}</p>
+<p>PageSize: {{pagination.PageSize}}</p>
+<p>TotalCount: {{pagination.TotalCount}}</p>
+<p>HasPrevious: {{pagination.HasPrevious}}</p>
+<p>HasNext: {{pagination.HasNext}}</p>
+<div class="" *ngFor="let si of siResponse; index as i">
+  <p class="">{{i + 1}}). {{si.code}} => {{si.description}} => {{si.itemGrouping}}</p>
+=======
 <div class="p-8">
   <div class="pb-10">
     <form [formGroup]="demoForm" class="flex flex-col gap-4">
@@ -57,4 +67,5 @@
   <div class="" *ngFor="let si of siResponse; index as i">
     <p class="">{{i + 1}}). {{si.code}} => {{si.description}} => {{si.itemGrouping}}</p>
   </div>
+>>>>>>> 756bcdf2ffe00f334e4f4ab4e62515198a53d863
 </div>
