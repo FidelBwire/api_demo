@@ -4,6 +4,7 @@ import { Si, SiSearchParameters } from './models/si';
 import { Pagination } from './models/pagination';
 import { Subscription } from 'rxjs';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { NotificationService } from './services/notification.service';
 
 @Component({
   selector: 'app-root',
@@ -25,9 +26,7 @@ export class AppComponent {
     Validators.required,
     Validators.min(1),
   ]);
-  protected code = new FormControl<string>('', [
-    Validators.maxLength(30),
-  ]);
+  protected code = new FormControl<string>('', [Validators.maxLength(30)]);
   protected description = new FormControl<string>('', [
     Validators.maxLength(30),
   ]);
@@ -58,9 +57,14 @@ export class AppComponent {
 
   siFetchSubscription!: Subscription;
 
-  constructor(private siService: SiService) {}
+  constructor(
+    private siService: SiService,
+    private notificationService: NotificationService
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
 
   ngOnDestroy(): void {
     this.siFetchSubscription?.unsubscribe(); // Conditional call to unsubscribe => unsubscribe will only be called if siFetchSubscription is not null
@@ -100,7 +104,7 @@ export class AppComponent {
       },
       error: (error) => {
         // Executed in case of an error
-        console.log('Error');
+        this.notificationService.showNotification('Unable to fetch data');
       },
       complete() {
         // Will always be executed whether API call is successful or not
@@ -116,12 +120,15 @@ export class AppComponent {
 
         if (controlErrors != null) {
           Object.keys(controlErrors).forEach((keyError) => {
-            console.log(`${key}: Validation='${keyError}': is valid: ${!controlErrors[keyError]}`);
-          })
+            console.log(
+              `${key}: Validation='${keyError}': is valid: ${!controlErrors[
+                keyError
+              ]}`
+            );
+          });
         }
-      })
+      });
     } else {
-
       var formData = this.demoForm.value;
 
       let params: SiSearchParameters = {
@@ -130,11 +137,6 @@ export class AppComponent {
         Description: formData.description,
         Code: formData.code,
       };
-
-      console.log(`pageNumber: ${formData.pageNumber}`);
-      console.log(`pageSize: ${formData.pageSize}`);
-      console.log(`description: ${formData.description}`);
-      console.log(`code: ${formData.code}`);
 
       this.getSis(params);
     }

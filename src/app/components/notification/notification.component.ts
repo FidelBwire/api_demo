@@ -1,3 +1,4 @@
+import { NotificationService } from './../../services/notification.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class NotificationComponent {
 
+  notification!: string;
+
+  constructor(private notificationService: NotificationService) { }
+
+  ngOnInit(): void {
+    this.notificationService.getNotification().subscribe({
+      next: (message) => {
+        this.notification = message;
+      },
+    });
+  }
 }
