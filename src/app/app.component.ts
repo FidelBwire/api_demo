@@ -35,6 +35,13 @@ export class AppComponent {
     Validators.required,
     Validators.email,
     Validators.maxLength(150),
+    Validators.pattern(/^[a-zA-Z]+\.[a-zA-Z]+@futuresoft7\.com$/),
+  ]);
+  protected phone = new FormControl<string>('', [
+    Validators.required,
+    Validators.email,
+    Validators.maxLength(150),
+    Validators.pattern(/^(07\d{8}|(\+2547\d{8}))$/),
   ]);
   protected password = new FormControl<string>('', [
     Validators.required,
@@ -62,9 +69,7 @@ export class AppComponent {
     private notificationService: NotificationService
   ) {}
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   ngOnDestroy(): void {
     this.siFetchSubscription?.unsubscribe(); // Conditional call to unsubscribe => unsubscribe will only be called if siFetchSubscription is not null
