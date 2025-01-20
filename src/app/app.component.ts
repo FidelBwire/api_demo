@@ -19,7 +19,7 @@ export class AppComponent {
   protected pageSize = new FormControl<number | null>(null, [
     Validators.required,
     Validators.max(50),
-    Validators.min(10),
+    Validators.min(1),
   ]);
   protected pageNumber = new FormControl<number | null>(null, [
     Validators.required,
@@ -49,7 +49,6 @@ export class AppComponent {
     pageNumber: this.pageNumber,
     code: this.code,
     description: this.description,
-    email: this.email,
   });
 
   protected signInForm = new FormGroup({
@@ -61,23 +60,14 @@ export class AppComponent {
 
   constructor(private siService: SiService) {}
 
-  ngOnInit() {
-    this.getSis();
-  }
+  ngOnInit() {}
 
   ngOnDestroy(): void {
     this.siFetchSubscription?.unsubscribe(); // Conditional call to unsubscribe => unsubscribe will only be called if siFetchSubscription is not null
   }
 
-  private getSis(): void {
-    let param: SiSearchParameters = {
-      PageNumber: 1,
-      PageSize: 2,
-      Code: '120',
-      Description: 'P',
-    };
-
-    this.siFetchSubscription = this.siService.fetchSi(param).subscribe({
+  private getSis(parameters: SiSearchParameters): void {
+    this.siFetchSubscription = this.siService.fetchSi(parameters).subscribe({
       next: (response) => {
         // Executed upon successfull API request
         let responseItems: Si[] | null = response.body; // Get the response body
@@ -131,9 +121,22 @@ export class AppComponent {
         }
       })
     } else {
+
       var formData = this.demoForm.value;
 
-      formData.code;
+      let params: SiSearchParameters = {
+        PageNumber: formData.pageNumber,
+        PageSize: formData.pageSize,
+        Description: formData.description,
+        Code: formData.code,
+      };
+
+      console.log(`pageNumber: ${formData.pageNumber}`);
+      console.log(`pageSize: ${formData.pageSize}`);
+      console.log(`description: ${formData.description}`);
+      console.log(`code: ${formData.code}`);
+
+      this.getSis(params);
     }
   }
 }
