@@ -12,7 +12,7 @@ export class SiService {
   constructor(private http: HttpClient) {}
 
   fetchSi(params: SiSearchParameters): Observable<HttpResponse<Si[]>> {
-    let url: string = `${this.baseUrl}/si?PageNumber=${params.PageNumber}&PageSize=${params.PageSize}`;
+    let url: string = `${this.baseUrl}/si?PageNumber=${params.PageNumber}&PageSize=${params.PageSize}`;  // Passing parameters]
 
     if (params.Code)
       url = `${url}&Code=${params.Code}`;
@@ -28,5 +28,14 @@ export class SiService {
   // PUT => Update data on the server
   // DELETE => Delete data from the server
   // OPTIONS => Used by client server to confirm supported HTTP methods
-  
+
 }
+
+// "response" : {
+//   "body": {
+
+//   },
+//   "headers": {
+
+//   }
+// }

@@ -1,5 +1,7 @@
 <router-outlet />
+<app-notification></app-notification>
 
+<<<<<<< HEAD
 <p>CurrentPage: {{pagination.CurrentPage}}</p>
 <p>TotalPages: {{pagination.TotalPages}}</p>
 <p>PageSize: {{pagination.PageSize}}</p>
@@ -8,4 +10,62 @@
 <p>HasNext: {{pagination.HasNext}}</p>
 <div class="" *ngFor="let si of siResponse; index as i">
   <p class="">{{i + 1}}). {{si.code}} => {{si.description}} => {{si.itemGrouping}}</p>
+=======
+<div class="p-8">
+  <div class="pb-10">
+    <form [formGroup]="demoForm" class="flex flex-col gap-4">
+
+      <div class="flex flex-col gap-1">
+        <div class="capitalize">Page Size</div>
+        <input type="number" class="border border-black py-1 px-2 rounded-md" [formControl]="pageSize" />
+        <div class="text-red-600 font-semibold" *ngIf="pageSize.invalid && (pageSize.dirty || pageSize.touched)">
+          <div class="" *ngIf="pageSize.errors?.['required']">Page size is required</div>
+          <div class="" *ngIf="pageSize.errors?.['max']">Page size cannot be more than 50</div>
+          <div class="" *ngIf="pageSize.errors?.['min']">Page size cannot be less than 10</div>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <div class="capitalize">Page Number</div>
+        <input type="number" class="border border-black py-1 px-2 rounded-md" [formControl]="pageNumber" />
+        <div class="text-red-600 font-semibold" *ngIf="pageNumber.invalid && (pageNumber.dirty || pageNumber.touched)">
+          <div class="" *ngIf="pageNumber.errors?.['required']">Page number is required</div>
+          <div class="" *ngIf="pageNumber.errors?.['min']">Page number cannot be less than 1</div>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <div class="capitalize">Code</div>
+        <input type="text" class="border border-black py-1 px-2 rounded-md" [formControl]="code" />
+        <div class="text-red-600 font-semibold" *ngIf="code.invalid && (code.dirty || code.touched)">
+          <div class="" *ngIf="code.errors?.['maxlength']">Code cannot be more than 30 characters</div>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-1">
+        <div class="capitalize">Description</div>
+        <input  class="border border-black py-1 px-2 rounded-md" [formControl]="description" />
+        <div class="text-red-600 font-semibold" *ngIf="description.invalid && (description.dirty || description.touched)">
+          <div class="" *ngIf="description.errors?.['maxlength']">Description cannot be more than 30 characters</div>
+        </div>
+      </div>
+
+      <button class="w-fit bg-blue-600 px-4 py-1.5 rounded-md text-white" (click)="fetchData()">Fetch Data</button>
+
+    </form>
+  </div>
+
+  <div class="" *ngIf="pagination != null">
+    <p>CurrentPage: {{pagination.CurrentPage}}</p>
+    <p>TotalPages: {{pagination.TotalPages}}</p>
+    <p>PageSize: {{pagination.PageSize}}</p>
+    <p>TotalCount: {{pagination.TotalCount}}</p>
+    <p>HasPrevious: {{pagination.HasPrevious}}</p>
+    <p>HasNext: {{pagination.HasNext}}</p>
+  </div>
+
+  <div class="" *ngFor="let si of siResponse; index as i">
+    <p class="">{{i + 1}}). {{si.code}} => {{si.description}} => {{si.itemGrouping}}</p>
+  </div>
+>>>>>>> 756bcdf2ffe00f334e4f4ab4e62515198a53d863
 </div>
