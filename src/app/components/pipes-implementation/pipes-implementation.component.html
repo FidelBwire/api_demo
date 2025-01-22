@@ -1,3 +1,30 @@
 <div class="">
-  <p>{{1737564885825 | date}}</p>
+  <p>{{1737564885825 | date: 'short'}}</p>
+  <p>{{1737564885825 | date: 'long'}}</p>
+  <p>{{1737564885825 | date: 'longDate'}}</p>
+</div>
+
+<div class="">
+  <p>{{1234.56 | currency: 'NGR'}}</p>
+</div>
+
+<div class="">
+  <p>{{'angular,pipes,session' | capitalize }}</p>
+</div>
+
+<div class="">
+  <p>{{'angular pipes session' | titlecase }}</p>
+</div>
+
+<div class="">
+  <p>{{
+    {
+      name: 'John Doe',
+      career: 'Developer'
+    } | json
+  }}</p>
+</div>
+
+<div class="">
+  <p>{{ 123456778 | number }}</p>
 </div>

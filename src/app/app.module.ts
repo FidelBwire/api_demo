@@ -7,12 +7,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotificationComponent } from './components/notification/notification.component';
 import { PipesImplementationComponent } from './components/pipes-implementation/pipes-implementation.component';
+import { CapitalizePipe } from './pipes/capitalize.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotificationComponent,
-    PipesImplementationComponent
+    PipesImplementationComponent,
+    CapitalizePipe
   ],
   imports: [
     BrowserModule,
