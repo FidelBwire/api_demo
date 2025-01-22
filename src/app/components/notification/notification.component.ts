@@ -16,7 +16,7 @@ export class NotificationComponent {
     this.notificationService.getNotification().subscribe({
       next: (message) => {
         this.notification = message;
-        setTimeout(() => this.notification = null, 3000)
+        setTimeout(() => this.notification = null, 2000)
       },
     });
   }

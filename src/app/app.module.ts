@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotificationComponent } from './components/notification/notification.component';
+import { PipesImplementationComponent } from './components/pipes-implementation/pipes-implementation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NotificationComponent
+    NotificationComponent,
+    PipesImplementationComponent
   ],
   imports: [
     BrowserModule,

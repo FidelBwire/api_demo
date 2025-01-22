@@ -120,8 +120,11 @@ export class AppComponent {
 
   protected fetchData(): void {
     if (this.demoForm.invalid) {
+      this.demoForm.markAllAsTouched();
       Object.keys(this.demoForm.controls).forEach((key) => {
         const controlErrors = this.demoForm.get(key)?.errors;
+
+        this.notificationService.showNotification('Please fill all required fields');
 
         if (controlErrors != null) {
           Object.keys(controlErrors).forEach((keyError) => {
