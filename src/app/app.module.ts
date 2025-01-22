@@ -8,13 +8,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotificationComponent } from './components/notification/notification.component';
 import { PipesImplementationComponent } from './components/pipes-implementation/pipes-implementation.component';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
+import { DirectivesImplComponent } from './components/directives-impl/directives-impl.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NotificationComponent,
     PipesImplementationComponent,
-    CapitalizePipe
+    CapitalizePipe,
+    DirectivesImplComponent
   ],
   imports: [
     BrowserModule,

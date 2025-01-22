@@ -1,0 +1,21 @@
+<div *ngIf="isLoading; else page" class="">
+  <p>Loading symbol</p>
+</div>
+<ng-template #page>
+  <!-- <p *ngIf="isSuccessful">Project is Successful</p>
+  <p *ngIf="!isSuccessful">Project is not Successful</p> -->
+  <!-- <br/> -->
+
+  <div class="" *ngFor="let staff of staff">
+    <p class="bg-green-600" *ngIf="staff.gender == 'Male'">{{staff.name}}</p>
+    <p class="bg-pink-600" *ngIf="staff.gender == 'Female'">{{staff.name}}</p>
+  </div>
+
+  <br />
+
+  <p *ngIf="isSuccessful; else notSuccessfulDisplay">Project is Successful</p>
+  <ng-template #notSuccessfulDisplay>
+    <p>Sorry. Project failed</p>
+  </ng-template>
+
+</ng-template>
