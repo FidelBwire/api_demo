@@ -1,6 +1,7 @@
 <div *ngIf="isLoading; else page" class="">
   <p>Loading symbol</p>
 </div>
+
 <ng-template #page>
   <!-- <p *ngIf="isSuccessful">Project is Successful</p>
   <p *ngIf="!isSuccessful">Project is not Successful</p> -->
@@ -18,4 +19,49 @@
     <p>Sorry. Project failed</p>
   </ng-template>
 
+  <div class="" [ngSwitch]="language">
+    <div *ngSwitchCase="'German'">Language is German</div>
+    <div *ngSwitchCase="'Spanish'">Language is Spanish</div>
+    <div *ngSwitchCase="'Swahili'">Language is Swahili</div>
+    <div *ngSwitchCase="'Russian'">Language is Russian</div>
+    <div *ngSwitchCase="'English'">Language is English</div>
+    <div *ngSwitchDefault>This is the default</div>
+  </div>
+
+  <br />
+  <!-- Apply CSS class on condition -->
+  <div [ngClass]="{'text-red-400' : isSuccessful}">Is successful</div>
+  <div [ngClass]="{'text-green-400' : !isSuccessful}">Is successful</div>
+
+  <br />
+  <div [ngStyle]="{'color': isSuccessful? 'red' : 'green'}">Test ngStyle block</div>
+
+  <div [hidden]="isSuccessful">Condition 1</div>
+  <div [hidden]="!isSuccessful">Condition 2</div>
+
+  <br />
+  <button [disabled]="isSuccessful" (click)="showAlert()">Button 1</button>
+  <button [disabled]="!isSuccessful" (click)="showAlert()">Button 2</button>
+
+  <br/>
+  <div [title]="'This is a test title directive'">Test Div</div>
+
 </ng-template>
+
+<!-- (isSuccessful)? true block : false block; -->
+
+<!-- switch(condition):
+  case 'cond1': {
+
+  }
+  case 'cond2'; {
+
+  }
+  default: {
+
+  } -->
+
+<!--
+    Structura Directives: Allow to change the structure of the user interface => *
+    Attribute Directives: Allows to change the appearance of an element => []
+  -->

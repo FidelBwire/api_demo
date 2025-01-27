@@ -10,18 +10,24 @@ export class DirectivesImplComponent {
   protected staff: Staff[] = [
     {
       name: 'John Doe',
-      gender: 'Male'
+      gender: 'Male',
     },
     {
       name: 'Esther',
-      gender: 'Female'
+      gender: 'Female',
     },
     {
       name: 'Tom Cruz',
-      gender: 'Male'
-    }
+      gender: 'Male',
+    },
   ];
 
-  protected isSuccessful: boolean = false;
-  protected isLoading: boolean = true;
+  protected isSuccessful: boolean = true;
+  protected isLoading: boolean = false;
+
+  protected language: string = 'Norwegian';
+
+  showAlert() {
+    alert('Button is clicked');
+ }
 }
