@@ -27,7 +27,18 @@ export class DirectivesImplComponent {
 
   protected language: string = 'Norwegian';
 
+  protected username!: string;
+
   showAlert() {
     alert('Button is clicked');
- }
+  }
+
+  isChanged() {
+    alert('Checkboix is clicked')
+  }
+
+  handlePress(event: KeyboardEvent) {
+    if (event.key == 'F2')
+      console.log('F2 pressed')
+  }
 }

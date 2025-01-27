@@ -43,8 +43,26 @@
   <button [disabled]="isSuccessful" (click)="showAlert()">Button 1</button>
   <button [disabled]="!isSuccessful" (click)="showAlert()">Button 2</button>
 
-  <br/>
+  <br />
   <div [title]="'This is a test title directive'">Test Div</div>
+
+  <div class="flex flex-row gap-2.5 items-cente">
+    Checkbox
+    <input type="checkbox" (change)="isChanged()"/>
+  </div>
+
+  <input type="text" (keyup)="isChanged()" class="border border-black rounded-md" />
+  <input type="text" (keydown)="isChanged()" class="border border-black rounded-md" />
+  <input type="text" (keypress)="handlePress($event)" class="border border-black rounded-md" />
+
+  <br />
+  {{language}}
+
+  <br />
+  <br />
+
+  <input type="text" [(ngModel)]="username" class="border border-black rounded-md"/>
+  <p>Hi {{username}}</p>
 
 </ng-template>
 
@@ -62,6 +80,9 @@
   } -->
 
 <!--
-    Structura Directives: Allow to change the structure of the user interface => *
+    Structural Directives: Allow to change the structure of the user interface => *
     Attribute Directives: Allows to change the appearance of an element => []
+    Event Binding Attributes - Allow to handle user interactions => ()
+    2-way Directive => Binding
+
   -->
