@@ -1,10 +1,16 @@
 <div class="p-8">
   <router-outlet />
+
+  <p appHighlight="red">This is a test on directive</p>
+  <p appHighlight="blue">This is a test on directive</p>
+  <p appHighlight="yellow">This is a test on directive</p>
+
+  <br />
   <app-directives-impl></app-directives-impl><br /><br />
   <app-notification></app-notification>
 
   <app-pipes-implementation></app-pipes-implementation>
-  
+
   <div class="pb-10">
     <form [formGroup]="demoForm" class="flex flex-col gap-4">
 

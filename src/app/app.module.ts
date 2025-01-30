@@ -9,6 +9,7 @@ import { NotificationComponent } from './components/notification/notification.co
 import { PipesImplementationComponent } from './components/pipes-implementation/pipes-implementation.component';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { DirectivesImplComponent } from './components/directives-impl/directives-impl.component';
+import { HighlightDirective } from './components/directives-impl/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DirectivesImplComponent } from './components/directives-impl/directives
     NotificationComponent,
     PipesImplementationComponent,
     CapitalizePipe,
-    DirectivesImplComponent
+    DirectivesImplComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
