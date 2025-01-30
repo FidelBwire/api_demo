@@ -10,6 +10,8 @@ import { PipesImplementationComponent } from './components/pipes-implementation/
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { DirectivesImplComponent } from './components/directives-impl/directives-impl.component';
 import { HighlightDirective } from './components/directives-impl/highlight.directive';
+import { AdminComponent } from './components/admin/admin.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { HighlightDirective } from './components/directives-impl/highlight.direc
     PipesImplementationComponent,
     CapitalizePipe,
     DirectivesImplComponent,
-    HighlightDirective
+    HighlightDirective,
+    AdminComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
