@@ -1,19 +1,43 @@
-import { CanActivateFn } from '@angular/router';
+import { Injectable } from '@angular/core';
+import { ActivatedRouteSnapshot, CanActivate, CanActivateFn, GuardResult, MaybeAsync, Router, RouterStateSnapshot } from '@angular/router';
 
-export const AuthGuard: CanActivateFn = (route, state) => {
-  return false;
-};
+@Injectable({
+	providedIn: 'root',
+})
+export class AuthGuard implements CanActivate {
+	constructor(private router: Router,
+		// private authService: AuthService
+	) {}
 
-// Deprecated
-// export class authGuard implements CanActivate {
-    // constructor(private router: Route) {
+	canActivate(): boolean {
+		let isUserAuthenticated: boolean = true;
+    let isAnyFormPending: boolean = true;
 
-    // }
+    if (isUserAuthenticated && !isAnyFormPending) {
+      return true;
+    } else {
+      this.router.navigateByUrl('login');
+      return false;
+    }
+	}
+}
 
-    // canActivate() {
-    //   if (user.isNotLoggedIn)
-    //     this.router.navigateByUrl('login');
-    //   else return true;
-    // }
 
-// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// export const AuthGuard: CanActivateFn = (route, state) => {
+//   return false;
+// };
+

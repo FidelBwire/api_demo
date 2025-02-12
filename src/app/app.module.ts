@@ -12,6 +12,8 @@ import { DirectivesImplComponent } from './components/directives-impl/directives
 import { HighlightDirective } from './components/directives-impl/highlight.directive';
 import { AdminComponent } from './components/admin/admin.component';
 import { LoginComponent } from './components/login/login.component';
+import { AccountsComponent } from './components/admin/pages/accounts/accounts.component';
+import { SalesComponent } from './components/admin/pages/sales/sales.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { LoginComponent } from './components/login/login.component';
     DirectivesImplComponent,
     HighlightDirective,
     AdminComponent,
-    LoginComponent
+    LoginComponent,
+    AccountsComponent,
+    SalesComponent
   ],
   imports: [
     BrowserModule,
