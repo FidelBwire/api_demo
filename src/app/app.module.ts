@@ -14,6 +14,9 @@ import { AdminComponent } from './components/admin/admin.component';
 import { LoginComponent } from './components/login/login.component';
 import { AccountsComponent } from './components/admin/pages/accounts/accounts.component';
 import { SalesComponent } from './components/admin/pages/sales/sales.component';
+import { HtmlOverviewComponent } from './components/html-overview/html-overview.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,10 @@ import { SalesComponent } from './components/admin/pages/sales/sales.component';
     AdminComponent,
     LoginComponent,
     AccountsComponent,
-    SalesComponent
+    SalesComponent,
+    HtmlOverviewComponent,
+    NavigationComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
