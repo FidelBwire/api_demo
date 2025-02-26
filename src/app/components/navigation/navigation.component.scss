@@ -1,0 +1,17 @@
+.blue-background { // CSS style based on a class
+  background-color: blue($color: #000000);
+  color: white;
+  padding: 4px;
+  border: 1px solid white;
+  border-radius: 6px;
+}
+
+#blue-background { // CSS style based on an Id
+  background-color: blue($color: #000000);
+  color: white;
+  padding: 4px;
+  border: 1px solid white;
+  border-radius: 6px;
+  font-weight: bolder;
+  font-size: 20px;
+}
