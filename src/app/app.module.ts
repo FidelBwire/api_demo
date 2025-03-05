@@ -23,6 +23,8 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page.component';
 import { ServicesPageComponent } from './pages/services-page/services-page.component';
 import { TeamPageComponent } from './pages/team-page/team-page.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { FooterSectionComponent } from './components/footer/footer-section/footer-section.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { TeamPageComponent } from './pages/team-page/team-page.component';
     ContactPageComponent,
     ServicesPageComponent,
     TeamPageComponent,
+    FooterComponent,
+    FooterSectionComponent,
   ],
   imports: [
     BrowserModule,
