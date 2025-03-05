@@ -12,22 +12,27 @@ export class NavigationComponent {
     {
       label: 'Home',
       icon: '../../../assets/icons/home.svg',
+      route: '/'
     },
     {
       label: 'About Us',
       icon: '../../../assets/icons/navigation.svg',
+      route: '/about-us'
     },
     {
       label: 'Contact',
       icon: '../../../assets/icons/navigation.svg',
+      route: '/contact'
     },
     {
       label: 'Services',
       icon: '../../../assets/icons/navigation.svg',
+      route: '/services'
     },
     {
       label: 'Team',
       icon: '../../../assets/icons/navigation.svg',
+      route: '/team'
     },
   ];
 

@@ -17,6 +17,12 @@ import { SalesComponent } from './components/admin/pages/sales/sales.component';
 import { HtmlOverviewComponent } from './components/html-overview/html-overview.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { AboutUsPageComponent } from './pages/about-us-page/about-us-page.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
+import { ContactPageComponent } from './pages/contact-page/contact-page.component';
+import { ServicesPageComponent } from './pages/services-page/services-page.component';
+import { TeamPageComponent } from './pages/team-page/team-page.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +38,13 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
     SalesComponent,
     HtmlOverviewComponent,
     NavigationComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    HomePageComponent,
+    AboutUsPageComponent,
+    ErrorPageComponent,
+    ContactPageComponent,
+    ServicesPageComponent,
+    TeamPageComponent,
   ],
   imports: [
     BrowserModule,

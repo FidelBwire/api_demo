@@ -8,6 +8,12 @@ import { AccountsComponent } from './components/admin/pages/accounts/accounts.co
 import { CanActivateChildGuard } from './guards/can-activate-child.guard';
 import { CanDeactivateGuard } from './guards/can-deactivate.guard';
 import { functionalGuardGuard } from './guards/functional-guard.guard';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { AboutUsPageComponent } from './pages/about-us-page/about-us-page.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
+import { ContactPageComponent } from './pages/contact-page/contact-page.component';
+import { ServicesPageComponent } from './pages/services-page/services-page.component';
+import { TeamPageComponent } from './pages/team-page/team-page.component';
 
 const routes: Routes = [
 	{
@@ -26,7 +32,13 @@ const routes: Routes = [
 			{ path: 'accounts', component: AccountsComponent },
 		],
 	},
-	{ path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
+  { path: '', component: HomePageComponent },
+  { path: 'about-us', component: AboutUsPageComponent },
+  { path: 'contact', component: ContactPageComponent },
+  { path: 'services', component: ServicesPageComponent },
+  { path: 'team', component: TeamPageComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({
