@@ -1,0 +1,15 @@
+<div id="template" class="h-full">
+  <div class="flex flex-row-reverse gap-1 h-full">
+    <div class="w-1/6 h-full">
+      <ng-content select="[sidebar]"></ng-content>
+    </div>
+    <div class="w-5/6 flex flex-col gap-3 py-4 px-2">
+      <div class="bg-green-100">
+        <ng-content select="[header]"></ng-content>
+      </div>
+      <div class="">
+        <ng-content select="[content]"></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

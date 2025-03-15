@@ -1,1 +1,9 @@
-<p>home-page works!</p>
+<app-page-template>
+  <div class="flex flex-row gap-1" content>
+    <app-custom-button (onButtonPress)="buttonEventHandler($event)" [label]="'Go to Homepage'"></app-custom-button>
+    <app-custom-button (onButtonPress)="buttonEventHandler($event)" [label]="'Go to Products'"></app-custom-button>
+    <app-custom-button (onButtonPress)="buttonEventHandler($event)" [label]="'Go to Contacts'"></app-custom-button>
+</div>
+  <div class="bg-blue-200" sidebar>Sidebar</div>
+  <div header>Header</div>
+</app-page-template>

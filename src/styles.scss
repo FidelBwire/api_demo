@@ -12,23 +12,29 @@
   }
 }
 
+body {
+  overflow-x: hidden;
+}
+
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
+@layer utilities { // To define custom classes
+  @variants responsive {
+    // Chrome, Opera, Safari,
+    // .nl....
+  }
+
   .footer-item { // Class
-    @apply xs:w-full md:w-1/3 flex flex-col justify-center items-center;
+    @apply extra-small:w-full medium:w-1/3 large:w-1/4 flex flex-col justify-center items-center;
   }
 
   #footer { // Id
-    @apply flex flex-col gap-4 bg-blue-400 p-4 text-neutral-50;
+    @apply flex flex-col gap-4 bg-company_theme p-4 text-neutral-50;
   }
 
   img { // HTML tag
 
   }
 
-  button { // HTML tag
-
-  }
 }

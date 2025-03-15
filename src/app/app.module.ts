@@ -25,6 +25,8 @@ import { ServicesPageComponent } from './pages/services-page/services-page.compo
 import { TeamPageComponent } from './pages/team-page/team-page.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FooterSectionComponent } from './components/footer/footer-section/footer-section.component';
+import { PageTemplateComponent } from './pages/page-template/page-template.component';
+import { CustomButtonComponent } from './components/custom-button/custom-button.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { FooterSectionComponent } from './components/footer/footer-section/foote
     TeamPageComponent,
     FooterComponent,
     FooterSectionComponent,
+    PageTemplateComponent,
+    CustomButtonComponent,
   ],
   imports: [
     BrowserModule,
